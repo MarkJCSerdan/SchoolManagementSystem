@@ -1,0 +1,20 @@
+CONTINUE: WHAT TO PASS IN LOGINPAGE CONSTRUCTOR, EITHER AN ARRAY OF STUDENT, STAFF, OR TEACHER
+
+
+-Put design and text to the Home, Request, Enroll, Events and Grades class
+-remove background colors
+-Make More Account Categories, Admin, Staff and Teachers account
+
+Admin
+-it should have its own Menu choices
+-can edit and remove accounts
+-can update all
+
+Staff
+-can update only Events and Enrollment
+
+Teacher
+-can update grades of her student
+
+Student
+-can see events, their grades, enrollment, request documents
