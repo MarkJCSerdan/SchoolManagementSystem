@@ -10,6 +10,7 @@ public class SignUpPage extends JPanel implements ActionListener{
     JTextField nameTextField, ageTextField, birthTextField, heightTextField, genderTextField, userNameTextField,
     passwordTextField;
     JButton signUp, back;
+    AccountList accountList;
 
     String name, userName, password;
     int age;
@@ -18,7 +19,8 @@ public class SignUpPage extends JPanel implements ActionListener{
     String gender;
 
 
-    SignUpPage(){
+    SignUpPage(AccountList accountList){
+        this.accountList = accountList;
 
         nameLabel = new JLabel("Name");
         nameLabel.setBounds(30, 30, 80, 30);
@@ -112,8 +114,18 @@ public class SignUpPage extends JPanel implements ActionListener{
                 gender = genderTextField.getText();
                 userName = userNameTextField.getText();
                 password = passwordTextField.getText();
+                switch(MyFrame.logInPage.getTracker()){
+                    case "Student":
+                        MyFrame.accountList.addToStudent(new Student(name, age, birthDate, height, gender, userName, password));
+                        break;
+                    case "Staff":
+                        MyFrame.accountList.addToStaff(new Staff(name, age, birthDate, height, gender, userName, password));
+                        break;
+                    case "Teacher":
+                        MyFrame.accountList.addToTeacher(new Teacher(name, age, birthDate, height, gender, userName, password));
+                        break;
+                }
 
-                LogInPage.accountList.addToStudent(new Student(name, age, birthDate, height, gender, userName, password));
                 JOptionPane.showMessageDialog(null, "Account Created!",null, JOptionPane.PLAIN_MESSAGE);
                 resetField();
 

@@ -1,4 +1,5 @@
-CONTINUE: WHAT TO PASS IN LOGINPAGE CONSTRUCTOR, EITHER AN ARRAY OF STUDENT, STAFF, OR TEACHER
+TODO
+ADMIN SETTING SETUP
 
 
 -Put design and text to the Home, Request, Enroll, Events and Grades class

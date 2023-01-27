@@ -1,28 +1,25 @@
 package com.mark.SMS;
 
 public class Staff extends Person{
-    String assignment;
-    String attendancePin;
-
-    public Staff(String name, int age, String birthdate, float height, String gender, String assignment, String attendancePin){
+    String userName, password;
+    public Staff(String name, int age, String birthdate, float height, String gender, String userName, String password){
         super(name, age, birthdate, height, gender);
-        this.assignment = assignment;
-        this.attendancePin = attendancePin;
+        this.userName = userName;
+        this.password = password;
     }
 
-    public String getAssignment() {
-        return assignment;
+    public void setUserName(String userName){
+        this.userName = userName;
+    }
+    public String getUserName(){
+        return userName;
     }
 
-    public void setAssignment(String assignment) {
-        this.assignment = assignment;
+    public void setPassword(String password){
+        this.password = password;
+    }
+    public String getPassword(){
+        return password;
     }
 
-    public String getAttendancePin() {
-        return attendancePin;
-    }
-
-    public void setAttendancePin(String attendancePin) {
-        this.attendancePin = attendancePin;
-    }
 }

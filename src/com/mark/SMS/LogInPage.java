@@ -11,13 +11,16 @@ public class LogInPage extends JPanel implements ActionListener{
     JLabel userNameLabel, passwordLabel;
     JTextField userNameTextField, passwordTextField;
     JButton signInButton, signUpButton;
-    SignUpPage signUpPage;
     static AccountList accountList;
+    Student[] studentList;
+    Staff[] staffList;
+    Teacher[] teacherList;
+    String tracker;
+
 
     //Constructor to use in displaying LogInPage in MyFrame
-    LogInPage(){
-        accountList = new AccountList();
-        signUpPage = new SignUpPage();
+    LogInPage(AccountList accountList){
+        this.accountList = accountList;
 
         //Set up userName Text and userName textBox
         userNameLabel = new JLabel("Username ");
@@ -52,7 +55,6 @@ public class LogInPage extends JPanel implements ActionListener{
         this.add(passwordTextField);
         this.add(signInButton);
         this.add(signUpButton);
-        this.add(signUpPage);
 
         this.setLayout(null);
         this.setBackground(Color.BLUE);
@@ -69,6 +71,22 @@ public class LogInPage extends JPanel implements ActionListener{
         passwordTextField.setText("");
     }
 
+    public void setStudents(Student[] studentList){
+        this.studentList = studentList;
+    }
+    public void setStaffs(Staff[] staffList){
+        this.staffList = staffList;
+    }
+    public void setTeachers(Teacher[] teacherList){
+        this.teacherList = teacherList;
+    }
+    public void setTracker(String tracker){
+        this.tracker = tracker;
+    }
+    public String getTracker(){
+        return tracker;
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -79,16 +97,53 @@ public class LogInPage extends JPanel implements ActionListener{
         }
 
         else if(e.getSource()==signInButton){
-            for(int i=0; i<accountList.studentCount; i++){
-                if(this.userNameTextField.getText().equals(accountList.studentList[i].getUserName())
-                && this.passwordTextField.getText().equals(accountList.studentList[i].getPassword())){
-                    MyFrame.homePage.showHomePage(true);
-                    MyFrame.logInPage.showLogInPage(false);
-                    break TEMP;
+            try{
+                switch(tracker){
+                    case "Student":
+                        for(int i=0; i<studentList.length; i++){
+                            if(userNameTextField.getText().equals(studentList[i].getUserName()) &&
+                                    passwordTextField.getText().equals(studentList[i].getPassword())){
+                                showLogInPage(false);
+                                resetField();
+                                MyFrame.homePage.showHomePage(true);
+                                break TEMP;
+                            }
+                        }
+                        JOptionPane.showMessageDialog(null, "Invalid", "Error", JOptionPane.PLAIN_MESSAGE);
+                        break;
+
+                    case "Staff":
+                        for(int i=0; i<staffList.length; i++){
+                            if(userNameTextField.getText().equals(staffList[i].getUserName()) &&
+                                    passwordTextField.getText().equals(staffList[i].getPassword())) {
+                                showLogInPage(false);
+                                resetField();
+                                MyFrame.homePage.showHomePage(true);
+                                break TEMP;
+                            }
+                        }
+                        JOptionPane.showMessageDialog(null, "Invalid", "Error", JOptionPane.PLAIN_MESSAGE);
+                        break;
+                    case "Teacher":
+                        for(int i=0; i<teacherList.length; i++){
+                            if(userNameTextField.getText().equals(teacherList[i].getUserName()) &&
+                                    passwordTextField.getText().equals(teacherList[i].getPassword())){
+                                showLogInPage(false);
+                                resetField();
+                                MyFrame.homePage.showHomePage(true);
+                                break TEMP;
+                            }
+                        }
+                        JOptionPane.showMessageDialog(null, "Invalid", "Error", JOptionPane.PLAIN_MESSAGE);
+                        break;
                 }
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, "Invalid", "Error", JOptionPane.PLAIN_MESSAGE);
+                resetField();
             }
-            JOptionPane.showMessageDialog(null, "Error", null, JOptionPane.PLAIN_MESSAGE);
-            resetField();
+
+
         }
     }
+
 }
