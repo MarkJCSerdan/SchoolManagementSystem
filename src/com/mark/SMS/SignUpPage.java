@@ -6,9 +6,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SignUpPage extends JPanel implements ActionListener{
-    JLabel nameLabel, ageLabel, birthDateLabel, heightLabel,  genderLabel, usernameLabel, passwordLabel;
-    JTextField nameTextField, ageTextField, birthTextField, heightTextField, genderTextField, userNameTextField,
-    passwordTextField;
+    JLabel firstNameLabel, lastNameLabel, cityLabel, municipalityLabel, barangayLabel, ageLabel, birthDateLabel, heightLabel,
+            genderLabel, usernameLabel, passwordLabel, typeLabel;
+    JTextField firstNameTextField, lastNameTextField, cityTextField, municipalityTextField, barangayTextField, ageTextField,
+            birthTextField, heightTextField, genderTextField, userNameTextField, passwordTextField;
+    JComboBox typeCombo, genderCombo, birthDateCombo;
     JButton signUp, back;
     AccountList accountList;
 
@@ -17,45 +19,74 @@ public class SignUpPage extends JPanel implements ActionListener{
     float height;
     String birthDate;
     String gender;
-
+    String[] typeValue = {"Select", "Student", "Staff", "Teacher"};
+    String[] birthValue = {"Select", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+    "November", "December"};
+    String[] genderValue = {"Select", "Male", "Female"};
 
     SignUpPage(AccountList accountList){
         this.accountList = accountList;
 
-        nameLabel = new JLabel("Name");
-        nameLabel.setBounds(30, 30, 80, 30);
-        nameTextField = new JTextField();
-        nameTextField.setBounds(140, 30, 170, 30);
+
+        firstNameLabel = new JLabel("Firstname");
+        firstNameLabel.setBounds(30, 30, 60, 30);
+        firstNameTextField = new JTextField();
+        firstNameTextField.setBounds(110, 30, 120, 30);
 
         ageLabel = new JLabel("Age");
-        ageLabel.setBounds(30, 90, 80, 30);
+        ageLabel.setBounds(290, 30, 60, 30);
         ageTextField = new JTextField();
-        ageTextField.setBounds(140, 90, 170, 30);
+        ageTextField.setBounds(360, 30, 120, 30);
 
-        birthDateLabel = new JLabel("Birthdate");
-        birthDateLabel.setBounds(30, 150, 80, 30);
-        birthTextField = new JTextField();
-        birthTextField.setBounds(140, 150, 170, 30);
-
-        heightLabel = new JLabel("Height");
-        heightLabel.setBounds(30, 210, 80, 30);
-        heightTextField = new JTextField();
-        heightTextField.setBounds(140, 210, 170, 30);
+        lastNameLabel = new JLabel("Lastname");
+        lastNameLabel.setBounds(30, 90, 60, 30);
+        lastNameTextField = new JTextField();
+        lastNameTextField.setBounds(110, 90, 120, 30);
 
         genderLabel = new JLabel("Gender");
-        genderLabel.setBounds(30, 270, 80, 30);
-        genderTextField = new JTextField();
-        genderTextField.setBounds(140, 270, 170, 30);
+        genderLabel.setBounds(290, 90, 60, 30);
+        genderCombo = new JComboBox(genderValue);
+        genderCombo.setBounds(360, 90, 120, 30);
+
+        cityLabel = new JLabel("City");
+        cityLabel.setBounds(30, 150, 60, 30);
+        cityTextField = new JTextField();
+        cityTextField.setBounds(110, 150, 120, 30);
+
+        birthDateLabel = new JLabel("Birthdate");
+        birthDateLabel.setBounds(290, 150, 60, 30);
+        birthDateCombo = new JComboBox(birthValue);
+        birthDateCombo.setBounds(360, 150, 120, 30);
+
+        municipalityLabel = new JLabel("Municipality");
+        municipalityLabel.setBounds(30, 210, 70, 30);
+        municipalityTextField = new JTextField();
+        municipalityTextField.setBounds(110, 210, 120, 30);
+
+        heightLabel = new JLabel("Height");
+        heightLabel.setBounds(290, 210, 60, 30);
+        heightTextField = new JTextField();
+        heightTextField.setBounds(360, 210, 120, 30);
+
+        barangayLabel = new JLabel("Barangay");
+        barangayLabel.setBounds(30, 270, 60, 30);
+        barangayTextField = new JTextField();
+        barangayTextField.setBounds(110, 270, 120, 30);
+
+        typeLabel = new JLabel("Account");
+        typeLabel.setBounds(30, 330, 60, 30);
+        typeCombo = new JComboBox(typeValue);
+        typeCombo.setBounds(110, 330, 120, 30);
 
         usernameLabel = new JLabel("Username");
-        usernameLabel.setBounds(30, 330, 80, 30);
+        usernameLabel.setBounds(290, 270, 60, 30);
         userNameTextField = new JTextField();
-        userNameTextField.setBounds(140, 330, 170, 30);
+        userNameTextField.setBounds(360, 270, 120, 30);
 
         passwordLabel = new JLabel("Password");
-        passwordLabel.setBounds(30, 390, 80, 30);
+        passwordLabel.setBounds(290, 330, 60, 30);
         passwordTextField = new JTextField();
-        passwordTextField.setBounds(140, 390, 170, 30);
+        passwordTextField.setBounds(360, 330, 120, 30);
 
         signUp = new JButton("Sign Up");
         signUp.setBounds(80, 470, 100, 30);
@@ -67,20 +98,31 @@ public class SignUpPage extends JPanel implements ActionListener{
         back.setFocusable(false);
         back.addActionListener(this);
 
-        this.add(nameLabel);
-        this.add(nameTextField);
+        this.add(firstNameLabel);
+        this.add(firstNameTextField);
+        this.add(lastNameLabel);
+        this.add(lastNameTextField);
+        this.add(cityLabel);
+        this.add(cityTextField);
+        this.add(municipalityLabel);
+        this.add(municipalityTextField);
+        this.add(barangayLabel);
+        this.add(barangayTextField);
+        this.add(typeLabel);
+        this.add(typeCombo);
         this.add(ageLabel);
         this.add(ageTextField);
         this.add(birthDateLabel);
-        this.add(birthTextField);
+        this.add(birthDateCombo);
         this.add(heightLabel);
         this.add(heightTextField);
         this.add(genderLabel);
-        this.add(genderTextField);
+        this.add(genderCombo);
         this.add(usernameLabel);
         this.add(userNameTextField);
         this.add(passwordLabel);
         this.add(passwordTextField);
+
         this.add(signUp);
         this.add(back);
 
@@ -94,11 +136,13 @@ public class SignUpPage extends JPanel implements ActionListener{
         this.setVisible(b);
     }
     public void resetField(){
-        nameTextField.setText("");
+        firstNameTextField.setText("");
+        lastNameTextField.setText("");
+        cityTextField.setText("");
+        municipalityTextField.setText("");
+        barangayTextField.setText("");
         ageTextField.setText("");
-        birthTextField.setText("");
         heightTextField.setText("");
-        genderTextField.setText("");
         userNameTextField.setText("");
         passwordTextField.setText("");
     }
@@ -107,7 +151,7 @@ public class SignUpPage extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==signUp){
             try{
-                name = nameTextField.getText();
+                name = firstNameTextField.getText();
                 age = Integer.parseInt(ageTextField.getText());
                 birthDate = birthTextField.getText();
                 height = Float.parseFloat(heightTextField.getText());
@@ -137,7 +181,7 @@ public class SignUpPage extends JPanel implements ActionListener{
         else if(e.getSource()==back){
             resetField();
             showSignUpPage(false);
-            MyFrame.logInPage.showLogInPage(true);
+            MyFrame.accountType.setVisible(true);
         }
     }
 }

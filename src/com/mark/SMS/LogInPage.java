@@ -8,9 +8,9 @@ import java.awt.event.ActionListener;
 //Input your username and password to go to homepage
 
 public class LogInPage extends JPanel implements ActionListener{
-    JLabel userNameLabel, passwordLabel;
+    JLabel userNameLabel, passwordLabel, label;
     JTextField userNameTextField, passwordTextField;
-    JButton signInButton, signUpButton;
+    JButton signInButton, backButton;
     static AccountList accountList;
     Student[] studentList;
     Staff[] staffList;
@@ -21,6 +21,10 @@ public class LogInPage extends JPanel implements ActionListener{
     //Constructor to use in displaying LogInPage in MyFrame
     LogInPage(AccountList accountList){
         this.accountList = accountList;
+
+        label = new JLabel();
+        label.setBounds(235,50,100,30);
+        label.setFont(new Font(null, Font.BOLD, 16));
 
         //Set up userName Text and userName textBox
         userNameLabel = new JLabel("Username ");
@@ -42,22 +46,23 @@ public class LogInPage extends JPanel implements ActionListener{
 
 
         //This is the SignUpButton
-        signUpButton = new JButton("Sign up");
-        signUpButton.setBounds(270, 210, 80,30);
-        signUpButton.setFocusable(false);
-        signUpButton.addActionListener(this);
+        backButton = new JButton("Back");
+        backButton.setBounds(270, 210, 80,30);
+        backButton.setFocusable(false);
+        backButton.addActionListener(this);
 
 
         //Adding the objects Ive created to the LogInPage Class
+        this.add(label);
         this.add(userNameLabel);
         this.add(userNameTextField);
         this.add(passwordLabel);
         this.add(passwordTextField);
         this.add(signInButton);
-        this.add(signUpButton);
+        this.add(backButton);
 
         this.setLayout(null);
-        this.setBackground(Color.BLUE);
+        this.setBackground(Color.GRAY);
         this.setBounds(20,20,540,540);
         this.setVisible(false);
     }
@@ -91,9 +96,9 @@ public class LogInPage extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
 
         TEMP:
-        if(e.getSource()==signUpButton){
+        if(e.getSource()==backButton){
             showLogInPage(false);
-            MyFrame.signUpPage.showSignUpPage(true);
+            MyFrame.accountType.setVisible(true);
         }
 
         else if(e.getSource()==signInButton){

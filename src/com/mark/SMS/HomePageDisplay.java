@@ -9,7 +9,8 @@ public class HomePageDisplay extends JPanel {
     Enroll enroll;
     Request request;
     Grades grades;
-    HomePageDisplay(){
+    HomePageDisplay() {
+
         home = new Home();
         event = new Event();
         enroll = new Enroll();

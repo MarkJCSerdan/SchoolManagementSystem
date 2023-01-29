@@ -8,7 +8,6 @@ public class Home extends JPanel {
 
         this.setBounds(0,0, 500,500);
         this.setBackground(Color.DARK_GRAY);
-        this.setLayout(null);
         this.setVisible(true);
     }
 

@@ -1,6 +1,7 @@
 package com.mark.SMS;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,7 +9,7 @@ public class HomePage extends JPanel implements ActionListener {
     JButton homeButton, requestButton, enrollButton, eventButton, gradesButton, logOutButton;
     HomePageDisplay homePageDisplay;
 
-    HomePage(){
+    HomePage() {
         homePageDisplay = new HomePageDisplay();
 
         homeButton = new JButton("Home");
@@ -49,6 +50,7 @@ public class HomePage extends JPanel implements ActionListener {
         this.add(logOutButton);
         this.add(homePageDisplay);
 
+        this.setBackground(Color.GRAY);
         this.setLayout(null);
         this.setBounds(20,20,540,540);
         this.setVisible(false);
@@ -98,7 +100,7 @@ public class HomePage extends JPanel implements ActionListener {
         else if(e.getSource()==logOutButton){
            homePageDisplay.home.showHome(true);
            this.showHomePage(false);
-           MyFrame.logInPage.showLogInPage(true);
+           MyFrame.accountType.setVisible(true);
            MyFrame.logInPage.resetField();
         }
     }

@@ -1,6 +1,5 @@
 package com.mark.SMS;
 import javax.swing.*;
-import java.awt.*;
 
 public class MyFrame extends JFrame {
     static AccountType accountType;
@@ -9,7 +8,7 @@ public class MyFrame extends JFrame {
     static HomePage homePage;
     static AccountList accountList;
 
-    MyFrame(){
+    MyFrame() {
         accountList = new AccountList();
         accountList.addToStudent(new Student("mark", 21, "jan", 160f, "male", "mark", "serdan"));
         accountList.addToStaff(new Staff("Anna", 22, "may", 156f, "female", "anna", "anna"));
@@ -28,7 +27,6 @@ public class MyFrame extends JFrame {
         this.setTitle("School Management System");
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         this.setSize(600, 600);
-        this.setBackground(Color.GREEN);
         this.setLocationRelativeTo(null);
         this.setLayout(null);
         this.setResizable(false);
