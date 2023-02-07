@@ -1,27 +1,46 @@
-package com.mark.SMS;
+package com.mark.SMS.Identity;
 
 public class Person {
-    String name;
+    String firstName, lastName;
+    Address address;
     int age;
     String birthdate;
     float height;
     String gender;
     Person(){}
 
-    Person(String name, int age, String birthdate, float height, String gender){
-        this.name = name;
+    protected Person(String firstName, String lastName, Address address, int age, String birthdate, float height, String gender){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
         this.age = age;
         this.birthdate = birthdate;
         this.height = height;
         this.gender = gender;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public int getAge() {

@@ -1,12 +1,13 @@
-package com.mark.SMS;
+package com.mark.SMS.People;
+
+import com.mark.SMS.Identity.Address;
+import com.mark.SMS.Identity.Person;
 
 public class Student extends Person {
     String userName;
     String password;
-
-    public Student(){}
-    public Student(String name, int age, String birthdate, float height, String gender, String userName, String password){
-        super(name, age, birthdate, height, gender);
+    public Student(String firstName, String lastName, Address address, int age, String birthdate, float height, String gender, String userName, String password){
+        super(firstName, lastName, address, age, birthdate, height, gender);
         this.userName = userName;
         this.password = password;
     }

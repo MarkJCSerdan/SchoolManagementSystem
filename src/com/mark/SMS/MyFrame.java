@@ -1,35 +1,36 @@
 package com.mark.SMS;
+//import com.mark.SMS.Identity.Address;
+//import com.mark.SMS.MainPages.*;
+//import com.mark.SMS.People.*;
+//import com.mark.SMS.SubPages.*;
+
+import com.mark.SMS.MainPages.HomePage;
+import com.mark.SMS.MainPages.LogInPage;
+import com.mark.SMS.MainPages.SignUpPage;
+
 import javax.swing.*;
 
 public class MyFrame extends JFrame {
-    static AccountType accountType;
-    static LogInPage logInPage;
-    static SignUpPage signUpPage;
-    static HomePage homePage;
-    static AccountList accountList;
-
+    LogInPage logInPage;
+    SignUpPage signUpPage;
+    HomePage homePage;
     MyFrame() {
-        accountList = new AccountList();
-        accountList.addToStudent(new Student("mark", 21, "jan", 160f, "male", "mark", "serdan"));
-        accountList.addToStaff(new Staff("Anna", 22, "may", 156f, "female", "anna", "anna"));
-        accountList.addToTeacher(new Teacher("Mary", 23, "may", 150f, "female", "mary", "serdan"));
-
-        accountType = new AccountType(accountList);
-        logInPage = new LogInPage(accountList);
-        signUpPage = new SignUpPage(accountList);
+        logInPage = new LogInPage();
+        signUpPage = new SignUpPage();
         homePage = new HomePage();
 
-        this.add(accountType);
-        this.add(logInPage);
+        //Adding Main Pages in the Frame
         this.add(signUpPage);
+        this.add(logInPage);
         this.add(homePage);
 
+
+        //Initializing Frame
         this.setTitle("School Management System");
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-        this.setSize(600, 600);
-        this.setLocationRelativeTo(null);
-        this.setLayout(null);
+        this.setSize(800, 700);
         this.setResizable(false);
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
 }

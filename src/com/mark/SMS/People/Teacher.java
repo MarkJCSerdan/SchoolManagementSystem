@@ -1,9 +1,13 @@
-package com.mark.SMS;
+package com.mark.SMS.People;
 
-public class Staff extends Person{
+import com.mark.SMS.Identity.Address;
+import com.mark.SMS.Identity.Person;
+
+public class Teacher extends Person {
     String userName, password;
-    public Staff(String name, int age, String birthdate, float height, String gender, String userName, String password){
-        super(name, age, birthdate, height, gender);
+
+    public Teacher(String firstName, String lastName, Address address, int age, String birthDate, float height, String gender, String userName, String password){
+        super(firstName, lastName, address, age, birthDate, height,  gender);
         this.userName = userName;
         this.password = password;
     }
@@ -14,12 +18,10 @@ public class Staff extends Person{
     public String getUserName(){
         return userName;
     }
-
     public void setPassword(String password){
         this.password = password;
     }
     public String getPassword(){
         return password;
     }
-
 }

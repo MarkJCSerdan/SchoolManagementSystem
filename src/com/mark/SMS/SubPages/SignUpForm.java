@@ -1,32 +1,33 @@
-package com.mark.SMS;
+package com.mark.SMS.SubPages;
+
+import com.mark.SMS.AccountList;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SignUpPage extends JPanel implements ActionListener{
+public class SignUpForm extends JPanel implements ActionListener {
+
     JLabel firstNameLabel, lastNameLabel, cityLabel, municipalityLabel, barangayLabel, ageLabel, birthDateLabel, heightLabel,
             genderLabel, usernameLabel, passwordLabel, typeLabel;
     JTextField firstNameTextField, lastNameTextField, cityTextField, municipalityTextField, barangayTextField, ageTextField,
-            birthTextField, heightTextField, genderTextField, userNameTextField, passwordTextField;
+            heightTextField, userNameTextField, passwordTextField;
     JComboBox typeCombo, genderCombo, birthDateCombo;
     JButton signUp, back;
-    AccountList accountList;
 
-    String name, userName, password;
+    String firstName, lastName, userName, password;
+    String type = "";
+    String barangay, municipality, city;
     int age;
     float height;
-    String birthDate;
-    String gender;
+    String birthDate, gender;
     String[] typeValue = {"Select", "Student", "Staff", "Teacher"};
     String[] birthValue = {"Select", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
-    "November", "December"};
+            "November", "December"};
     String[] genderValue = {"Select", "Male", "Female"};
 
-    SignUpPage(AccountList accountList){
-        this.accountList = accountList;
-
+    public SignUpForm(){
 
         firstNameLabel = new JLabel("Firstname");
         firstNameLabel.setBounds(30, 30, 60, 30);
@@ -128,12 +129,8 @@ public class SignUpPage extends JPanel implements ActionListener{
 
         this.setLayout(null);
         this.setBackground(Color.GRAY);
-        this.setBounds(20,20,540,540);
+        this.setBounds(100,60,590,540);
         this.setVisible(false);
-    }
-
-    public void showSignUpPage(boolean b){
-        this.setVisible(b);
     }
     public void resetField(){
         firstNameTextField.setText("");
@@ -145,43 +142,18 @@ public class SignUpPage extends JPanel implements ActionListener{
         heightTextField.setText("");
         userNameTextField.setText("");
         passwordTextField.setText("");
+        genderCombo.setSelectedItem(genderValue[0]);
+        birthDateCombo.setSelectedItem(birthValue[0]);
+        typeCombo.setSelectedItem(typeValue[0]);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==signUp){
-            try{
-                name = firstNameTextField.getText();
-                age = Integer.parseInt(ageTextField.getText());
-                birthDate = birthTextField.getText();
-                height = Float.parseFloat(heightTextField.getText());
-                gender = genderTextField.getText();
-                userName = userNameTextField.getText();
-                password = passwordTextField.getText();
-                switch(MyFrame.logInPage.getTracker()){
-                    case "Student":
-                        MyFrame.accountList.addToStudent(new Student(name, age, birthDate, height, gender, userName, password));
-                        break;
-                    case "Staff":
-                        MyFrame.accountList.addToStaff(new Staff(name, age, birthDate, height, gender, userName, password));
-                        break;
-                    case "Teacher":
-                        MyFrame.accountList.addToTeacher(new Teacher(name, age, birthDate, height, gender, userName, password));
-                        break;
-                }
 
-                JOptionPane.showMessageDialog(null, "Account Created!",null, JOptionPane.PLAIN_MESSAGE);
-                resetField();
-
-            }catch(Exception exception){
-                JOptionPane.showMessageDialog(null, "Please Try again", "Error", JOptionPane.PLAIN_MESSAGE);
-                resetField();
-            }
         }
         else if(e.getSource()==back){
-            resetField();
-            showSignUpPage(false);
-            MyFrame.accountType.setVisible(true);
+
         }
     }
 }
