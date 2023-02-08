@@ -1,5 +1,6 @@
 package com.mark.SMS.SubPages;
 
+import com.mark.SMS.MainPages.LogInPage;
 import com.mark.SMS.MyFrame;
 
 import javax.swing.*;
@@ -145,6 +146,11 @@ public class AdminHomePage extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if(e.getSource()==logOutButton){
+            this.setVisible(false);
+            MyFrame.homePage.setVisible(false);
+            LogInPage.chooseAccountPage.setVisible(true);
+            MyFrame.logInPage.setVisible(true);
+        }
     }
 }

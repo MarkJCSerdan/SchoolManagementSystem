@@ -6,8 +6,8 @@ import com.mark.SMS.Identity.Person;
 public class Student extends Person {
     String userName;
     String password;
-    public Student(String firstName, String lastName, Address address, int age, String birthdate, float height, String gender, String userName, String password){
-        super(firstName, lastName, address, age, birthdate, height, gender);
+    public Student(String firstName, String lastName, Address address, String gender, String userName, String password){
+        super(firstName, lastName, address, gender);
         this.userName = userName;
         this.password = password;
     }
@@ -28,4 +28,7 @@ public class Student extends Person {
         this.password = password;
     }
 
+    public String toString(){
+        return getFirstName() + " " + getLastName();
+    }
 }

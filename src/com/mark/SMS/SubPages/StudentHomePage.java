@@ -1,5 +1,8 @@
 package com.mark.SMS.SubPages;
 
+import com.mark.SMS.MainPages.LogInPage;
+import com.mark.SMS.MyFrame;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -34,15 +37,17 @@ public class StudentHomePage extends JPanel implements ActionListener {
         viewProfileButton = new JButton("View Profile");
         viewProfileButton.setBounds(450, 70, 110, 30);
         viewProfileButton.setFocusable(false);
-
+        viewProfileButton.addActionListener(this);
 
         settingButton = new JButton("Settings");
         settingButton.setBounds(450, 110, 110, 30);
         settingButton.setFocusable(false);
+        settingButton.addActionListener(this);
 
         logOutButton = new JButton("Log out");
         logOutButton.setBounds(450, 150, 110, 30);
         logOutButton.setFocusable(false);
+        logOutButton.addActionListener(this);
 
         greetingPanel = new JPanel();
         greetingPanel.setBounds(40,30,350,200);
@@ -75,6 +80,11 @@ public class StudentHomePage extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if(e.getSource()==logOutButton){
+            this.setVisible(false);
+            MyFrame.homePage.setVisible(false);
+            LogInPage.chooseAccountPage.setVisible(true);
+            MyFrame.logInPage.setVisible(true);
+        }
     }
 }

@@ -5,8 +5,8 @@ import com.mark.SMS.Identity.Person;
 
 public class Staff extends Person {
     String userName, password;
-    public Staff(String firstName, String lastName, Address address, int age, String birthdate, float height, String gender, String userName, String password){
-        super(firstName, lastName, address, age, birthdate, height, gender);
+    public Staff(String firstName, String lastName, Address address, String gender, String userName, String password){
+        super(firstName, lastName, address, gender);
         this.userName = userName;
         this.password = password;
     }

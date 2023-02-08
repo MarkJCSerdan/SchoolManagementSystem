@@ -1,4 +1,5 @@
 package com.mark.SMS.MainPages;
+import com.mark.SMS.AccountList;
 import com.mark.SMS.SubPages.*;
 
 import javax.swing.*;
@@ -18,7 +19,6 @@ public class LogInPage extends JPanel implements ActionListener{
         chooseAccountPage = new ChooseAccountPage();
         logInForm = new LogInForm();
 
-
         //Adding SubPages to the LogInPage
         this.add(chooseAccountPage);
         this.add(logInForm);
@@ -26,7 +26,7 @@ public class LogInPage extends JPanel implements ActionListener{
         this.setLayout(null);
         this.setBackground(Color.GRAY);
         this.setBounds(0,0,800,700);
-        this.setVisible(false);
+        this.setVisible(true);
     }
     public void resetField(){
 

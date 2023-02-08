@@ -1,13 +1,9 @@
 package com.mark.SMS.People;
 
-import com.mark.SMS.Identity.Address;
-import com.mark.SMS.Identity.Person;
-
-public class Admin extends Person {
+public class Admin {
     String userName, password;
 
-    public Admin(String firstName, String lastName, Address address, int age, String birthdate, float height, String gender, String userName, String password){
-        super(firstName, lastName, address, age, birthdate, height, gender);
+    public Admin(String userName, String password){
         this.userName = userName;
         this.password = password;
     }

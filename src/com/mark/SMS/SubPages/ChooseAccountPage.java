@@ -1,7 +1,10 @@
 package com.mark.SMS.SubPages;
 
 import com.mark.SMS.AccountList;
+import com.mark.SMS.MainPages.HomePage;
 import com.mark.SMS.MainPages.LogInPage;
+import com.mark.SMS.MainPages.SignUpPage;
+import com.mark.SMS.MyFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -64,7 +67,7 @@ public class ChooseAccountPage extends JPanel implements ActionListener {
         this.setBackground(Color.LIGHT_GRAY);
         this.setLayout(null);
         this.setBounds(100,60,590,540);
-        this.setVisible(false);
+        this.setVisible(true);
     }
 
     @Override
@@ -72,18 +75,27 @@ public class ChooseAccountPage extends JPanel implements ActionListener {
         if(e.getSource()==studentChoice){
             this.setVisible(false);
             LogInPage.logInForm.setVisible(true);
+            MyFrame.homePage.setTracker("Student");
         }
         else if(e.getSource()==staffChoice){
-
+            this.setVisible(false);
+            LogInPage.logInForm.setVisible(true);
+            MyFrame.homePage.setTracker("Staff");
         }
         else if(e.getSource()==teacherChoice){
-
+            this.setVisible(false);
+            LogInPage.logInForm.setVisible(true);
+            MyFrame.homePage.setTracker("Teacher");
         }
         else if(e.getSource()==adminChoice){
-
+            this.setVisible(false);
+            LogInPage.logInForm.setVisible(true);
+            MyFrame.homePage.setTracker("Admin");
         }
         else if(e.getSource()==signUpButton){
-
+            this.setVisible(false);
+            MyFrame.signUpPage.setVisible(true);
+            SignUpPage.signUpForm.setVisible(true);
         }
     }
 }

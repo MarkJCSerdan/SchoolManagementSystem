@@ -1,9 +1,14 @@
 package com.mark.SMS.SubPages;
 
+import com.mark.SMS.MainPages.LogInPage;
+import com.mark.SMS.MyFrame;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class TeacherHomePage extends JPanel {
+public class TeacherHomePage extends JPanel implements ActionListener {
     JPanel panel;
     JButton uploadGradeButton, logOutButton, settingButton, profileButton;
     public TeacherHomePage(){
@@ -29,12 +34,18 @@ public class TeacherHomePage extends JPanel {
 
         logOutButton = new JButton("Log Out");
         logOutButton.setBounds(400,130,90,30);
+        logOutButton.setFocusable(false);
+        logOutButton.addActionListener(this);
 
         settingButton = new JButton("Settings");
         settingButton.setBounds(400,90,90,30);
+        settingButton.setFocusable(false);
+        settingButton.addActionListener(this);
 
         profileButton = new JButton("Profile");
         profileButton.setBounds(400,50,90,30);
+        profileButton.setFocusable(false);
+        profileButton.addActionListener(this);
 
         this.add(uploadGradeButton);
         this.add(logOutButton);
@@ -44,6 +55,16 @@ public class TeacherHomePage extends JPanel {
         this.setBackground(Color.YELLOW);
         this.setLayout(null);
         this.setBounds(100,60,590,540);
-        this.setVisible(true);
+        this.setVisible(false);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==logOutButton){
+            this.setVisible(false);
+            MyFrame.homePage.setVisible(false);
+            LogInPage.chooseAccountPage.setVisible(true);
+            MyFrame.logInPage.setVisible(true);
+        }
     }
 }
