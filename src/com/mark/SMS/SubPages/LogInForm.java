@@ -70,6 +70,8 @@ public class LogInForm extends JPanel implements ActionListener {
                         for(int i=0; i<MyFrame.accountList.studentCount; i++){
                             if(MyFrame.accountList.studentList[i].getUserName().equals(user) &&
                                     MyFrame.accountList.studentList[i].getPassword().equals(pass)) {
+                                MyFrame.homePage.profilePage.setAccount(MyFrame.accountList.studentList[i]);
+                                MyFrame.homePage.profilePage.setField();
                                 MyFrame.logInPage.setVisible(false);
                                 this.setVisible(false);
                                 MyFrame.homePage.setVisible(true);
@@ -86,6 +88,8 @@ public class LogInForm extends JPanel implements ActionListener {
                         for(int i=0; i<MyFrame.accountList.staffCount; i++){
                             if(MyFrame.accountList.staffList[i].getUserName().equals(user) &&
                                     MyFrame.accountList.staffList[i].getPassword().equals(pass)) {
+                                MyFrame.homePage.profilePage.setAccount(MyFrame.accountList.staffList[i]);
+                                MyFrame.homePage.profilePage.setField();
                                 MyFrame.logInPage.setVisible(false);
                                 this.setVisible(false);
                                 MyFrame.homePage.setVisible(true);
@@ -102,6 +106,8 @@ public class LogInForm extends JPanel implements ActionListener {
                         for(int i=0; i<MyFrame.accountList.teacherCount; i++){
                             if(MyFrame.accountList.teacherList[i].getUserName().equals(user) &&
                                     MyFrame.accountList.teacherList[i].getPassword().equals(pass)) {
+                                MyFrame.homePage.profilePage.setAccount(MyFrame.accountList.teacherList[i]);
+                                MyFrame.homePage.profilePage.setField();
                                 MyFrame.logInPage.setVisible(false);
                                 this.setVisible(false);
                                 MyFrame.homePage.setVisible(true);
@@ -117,6 +123,8 @@ public class LogInForm extends JPanel implements ActionListener {
                         for(int i=0; i<MyFrame.accountList.adminCount; i++){
                             if(MyFrame.accountList.adminList[i].getUserName().equals(user) &&
                                     MyFrame.accountList.adminList[i].getPassword().equals(pass)) {
+                                MyFrame.homePage.profilePage.setAccount(MyFrame.accountList.adminList[i]);
+                                MyFrame.homePage.profilePage.setField();
                                 MyFrame.logInPage.setVisible(false);
                                 this.setVisible(false);
                                 MyFrame.homePage.setVisible(true);

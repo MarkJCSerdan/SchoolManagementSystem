@@ -26,7 +26,7 @@ public class LogInPage extends JPanel implements ActionListener{
         this.setLayout(null);
         this.setBackground(Color.GRAY);
         this.setBounds(0,0,800,700);
-        this.setVisible(true);
+        this.setVisible(true); //true
     }
     public void resetField(){
 

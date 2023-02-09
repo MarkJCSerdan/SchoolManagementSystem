@@ -66,5 +66,9 @@ public class TeacherHomePage extends JPanel implements ActionListener {
             LogInPage.chooseAccountPage.setVisible(true);
             MyFrame.logInPage.setVisible(true);
         }
+        if(e.getSource()==profileButton){
+            this.setVisible(false);
+            MyFrame.homePage.profilePage.setVisible(true);
+        }
     }
 }

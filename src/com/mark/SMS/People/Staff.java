@@ -1,27 +1,9 @@
 package com.mark.SMS.People;
 
-import com.mark.SMS.Identity.Address;
-import com.mark.SMS.Identity.Person;
-
-public class Staff extends Person {
-    String userName, password;
+import com.mark.SMS.Identity.*;
+public class Staff extends Account {
     public Staff(String firstName, String lastName, Address address, String gender, String userName, String password){
-        super(firstName, lastName, address, gender);
-        this.userName = userName;
-        this.password = password;
-    }
-    public void setUserName(String userName){
-        this.userName = userName;
-    }
-    public String getUserName(){
-        return userName;
-    }
-
-    public void setPassword(String password){
-        this.password = password;
-    }
-    public String getPassword(){
-        return password;
+        super(firstName, lastName, address, gender, userName, password);
     }
 
 }

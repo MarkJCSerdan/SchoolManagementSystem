@@ -1,16 +1,23 @@
 package com.mark.SMS.Identity;
 
-public class Person {
+public class Account {
     String firstName, lastName;
     Address address;
     String gender;
-    Person(){}
+    String userName;
+    String password;
+    protected Account(String userName, String password){
+        this.userName = userName;
+        this.password = password;
+    }
 
-    protected Person(String firstName, String lastName, Address address, String gender){
+    protected Account(String firstName, String lastName, Address address, String gender, String userName, String password){
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.gender = gender;
+        this.userName = userName;
+        this.password = password;
     }
 
     public String getFirstName() {
@@ -43,5 +50,17 @@ public class Person {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+    public void setUserName(String userName){
+        this.userName = userName;
+    }
+    public String getUserName(){
+        return userName;
+    }
+    public void setPassword(String password){
+        this.password = password;
+    }
+    public String getPassword(){
+        return password;
     }
 }
