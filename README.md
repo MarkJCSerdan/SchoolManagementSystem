@@ -1,2 +1,2 @@
 # SchoolManagementSystem
-SMS
+See branch master
